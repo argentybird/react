@@ -1,8 +1,5 @@
 import style from './Heading.module.css';
 
-const text = {
-  content: "Главная",
-}
 
 export const Heading = (props) => {
   return (  
