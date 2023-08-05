@@ -2,8 +2,8 @@ import style from './Title.module.css';
 import notphoto from './img/notphoto.jpg';
 import PropTypes from 'prop-types';
 
-export const Title = ({postData}) => {
-  const {title, author} = postData;
+export const Title = ({title, author}) => {
+  // const {title, author} = postData;
   console.log('title, author: ', title, author);
   return (
     <div>
@@ -23,5 +23,6 @@ export const Title = ({postData}) => {
 };
 
 Title.propTypes = {
-  postData: PropTypes.object,
+  title: PropTypes.string,
+  author: PropTypes.string,
 };

@@ -7,14 +7,14 @@ import Data from './Data';
 
 export const Post = ({postData}) => {
   const {title, author, ups, date} = postData;
-  <div className={style.post}>
-    <Title title={title} author={author}/>
-    <Ups ups={ups} />
-    <DeleteButton del={true}/>
-    <Data date={date}/>
-
-
-  </div>;
+  return (
+    <div className={style.post}>
+      <Title title={title} author={author}/>
+      <Ups ups={ups} />
+      <DeleteButton del={true}/>
+      <Data date={date}/>
+    </div>
+  );
 };
 
 

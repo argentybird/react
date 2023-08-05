@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import rateUp from './img/up.svg';
 import rateDown from './img/down.svg';
 
-export const Ups = ({postData}) => {
-  const {ups} = postData;
+export const Ups = ({ups}) => {
+  // const {ups} = postData;
   console.log('ups: ', ups);
   return (
     <div className={style.raiting}>
@@ -16,5 +16,5 @@ export const Ups = ({postData}) => {
 };
 
 Ups.propTypes = {
-  postData: PropTypes.object,
+  ups: PropTypes.number,
 };

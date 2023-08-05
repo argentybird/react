@@ -7,7 +7,7 @@ import Search from './Search';
 import Auth from './Auth';
 
 export const Header = () => {
-  return <header className={style.header}>
+  return (<header className={style.header}>
     <Layout>
       <div className={style.gridContainer}>
         <Logo />
@@ -16,5 +16,5 @@ export const Header = () => {
         <Auth auth={false} />
       </div>
     </Layout>
-  </header>;
+  </header>);
 };

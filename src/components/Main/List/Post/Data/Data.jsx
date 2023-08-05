@@ -2,8 +2,7 @@ import style from './Data.module.css';
 import formatDate from '../../../../../utils/formatDate';
 import PropTypes from 'prop-types';
 
-export const Data = ({postData}) => {
-  const {date} = postData;
+export const Data = ({date}) => {
   console.log('date: ', date);
   return (
     <time className={style.date} dateTime={date}>{formatDate(date)}</time>
@@ -11,6 +10,6 @@ export const Data = ({postData}) => {
 };
 
 Data.propTypes = {
-  postData: PropTypes.string,
+  date: PropTypes.string,
 
 };
