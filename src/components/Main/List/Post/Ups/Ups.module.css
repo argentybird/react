@@ -1,13 +1,13 @@
 .rating {
-    grid-area: rating;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    justify-content: center;
-    padding-right: 10px;
-    padding-top: 25px;
-  }
+  grid-area: rating;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  padding-right: 10px;
+  padding-top: 25px;
+}
 
 .up,
 .down {
@@ -24,11 +24,15 @@
   background-color: #ff9966;
 }
 .up {
-  background-image: url('./img/up.svg');
+  background-image: url("./img/up.svg");
 }
 
 .down {
-  background-image: url('./img/down.svg');
+  background-image: url("./img/down.svg");
+}
+
+.ups {
+  font-size: 16px;
 }
 
 @media (min-width: 580px) {
@@ -38,7 +42,7 @@
     flex-direction: row;
     justify-content: flex-start;
   }
-  
+
   .up,
   .down {
     width: 24px;
@@ -54,5 +58,4 @@
   .down:hover {
     outline-color: #cc6633;
   }
-
 }

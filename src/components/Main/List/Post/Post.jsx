@@ -11,7 +11,7 @@ export const Post = ({postData}) => {
     <div className={style.post}>
       <Title title={title} author={author}/>
       <Ups ups={ups} />
-      <DeleteButton del={true}/>
+      <DeleteButton del={false}/>
       <Data date={date}/>
     </div>
   );
