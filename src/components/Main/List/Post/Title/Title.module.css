@@ -31,8 +31,9 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   display: -webkit-box;
-  margin-bottom: 8px;
-  transition: color 0.36s ease-in-out;
+  font-weight: 700;
+  margin-bottom: 10px;
+  transition: box-shadow 0.36s ease-in-out;
 }
 
 .linkPost:after {
@@ -45,9 +46,12 @@
 
 .linkAuthor {
   position: relative;
-  font-size: 16px;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: min-content;
+  display: -webkit-box;
   line-height: 18px;
-  color: #cc6633;
   transition: color 0.36s ease-in-out;
 }
 

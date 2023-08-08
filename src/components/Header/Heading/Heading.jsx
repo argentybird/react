@@ -1,10 +1,14 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable arrow-body-style */
+import PropTypes from 'prop-types';
+import React from 'react';
 import style from './Heading.module.css';
+import {Text} from '../../../UI/Text';
 
 
-export const Heading = (props) => {
-  return (
-    <h2 className={style.heading}>{props.text}</h2>
-  );
+export const Heading = ({text}) =>
+  <Text As='h2' size={22} tsize={26} center
+    className={style.heading}>{text}</Text>;
+
+Heading.propTypes = {
+  text: PropTypes.string,
 };
+
