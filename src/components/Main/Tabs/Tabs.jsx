@@ -44,7 +44,7 @@ export const Tabs = () => {
       {isDropdown && <div className={style.wrapperBtn}>
         <button className={style.btn}
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-        Добавить пост
+        Просмотренные
           <ArrowIcon width={15} height={15}/>
         </button>
       </div>}
