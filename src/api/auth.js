@@ -1,4 +1,3 @@
-/*
 import {
   CLIENT_ID,
   URL_AUTH,
@@ -17,4 +16,5 @@ searchParams.append('state', RANDOM_STRING);
 searchParams.append('redirect_uri', REDIRECT_URI);
 searchParams.append('scope', SCOPE);
 
-export const urlAuth = `${URL_AUTH}${searchParams.toString()}`; */
+export const urlAuth = `${URL_AUTH}${searchParams.toString()}`;
+

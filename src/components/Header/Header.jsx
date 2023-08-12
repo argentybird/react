@@ -1,20 +1,26 @@
-/* eslint-disable arrow-body-style */
+
 import style from './Header.module.css';
 import Layout from '../Layout';
 import Logo from './Logo';
 import Heading from './Heading';
 import Search from './Search';
 import Auth from './Auth';
+import PropTypes from 'prop-types';
 
-export const Header = () => {
-  return (<header className={style.header}>
+
+export const Header = ({token}) => (
+  <header className={style.header}>
     <Layout>
       <div className={style.gridContainer}>
         <Logo />
-        <Heading text='Главная'/>
+        <Heading text="Главная" />
         <Search />
-        <Auth auth={false} />
+        <Auth token={token} />
       </div>
     </Layout>
-  </header>);
-};
+  </header>
+);
+
+
+Header.propTypes = {
+  token: PropTypes.string};
