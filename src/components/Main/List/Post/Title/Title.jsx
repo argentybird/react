@@ -8,7 +8,7 @@ export const Title = ({title, author}) => (
   <div>
     <li className={style.post}>
       <img className={style.img} src={notphoto} alt={title} />
-      <Text As='h2' className={style.content}>
+      <Text As='div' className={style.content}>
         <h2 className={style.title}>
           <Text As='a' size={18} tsize={24}
             className={style.linkPost} href="#post">
