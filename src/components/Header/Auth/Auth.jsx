@@ -9,6 +9,11 @@ import {URL_API} from '../../../api/const';
 
 export const Auth = ({token}) => {
   const [auth, setAuth] = useState({});
+  const [isExit, setExit] = useState(false);
+
+  const logOut = () => (
+    token = ''
+  );
 
   useEffect(() => {
     if (!token) return;
@@ -22,21 +27,33 @@ export const Auth = ({token}) => {
       .then(({name, icon_img: iconImg}) => {
         const img = iconImg.replace(/\?.*$/, '');
         setAuth({name, img});
+      })
+      .catch((err) => {
+        console.err(err);
+        setAuth({});
       });
   }, [token]);
 
   return (
     <div className={style.container}>
       {auth.name ? (
-        <button className={style.btn}>
-          <img className={style.img}
-            src={auth.img} title={auth.name}
-            alt={`Avatar ${auth.name}`} />
-        </button>
-
+        <>
+          <button className={style.btn}>
+            <img className={style.img}
+              src={auth.img} title={auth.name}
+              alt={`Avatar ${auth.name}`}
+              onClick={() => setExit(!isExit)} />
+          </button>
+          {isExit && (
+            <button className={style.logOut} onClick={logOut}>
+            Выйти
+            </button>
+          )}
+        </>
       ) : (
       <Text className={style.authLink} As='a' href={urlAuth}>
         <LoginIcon className={style.svg} />
+
       </Text>
       )}
     </div>
