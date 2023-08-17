@@ -11,9 +11,7 @@ export const Auth = ({token}) => {
   const [auth, setAuth] = useState({});
   const [isExit, setExit] = useState(false);
 
-  const logOut = () => (
-    token = ''
-  );
+  const logOut = setAuth({});
 
   useEffect(() => {
     if (!token) return;

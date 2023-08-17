@@ -2,9 +2,7 @@ import {useState, useEffect} from 'react';
 
 export const useToken = (state) => {
   const [token, setToken] = useState(state);
-  const delToken = () => ({
-    token: '',
-  });
+  const [delToken, setDelToken] = useState({});
 
   useEffect(() => {
     if (location.pathname.includes('/auth')) {
@@ -18,9 +16,9 @@ export const useToken = (state) => {
     }
 
     if (localStorage.clear('bearer')) {
-      delToken(token);
+      setToken(localStorage.clear('bearer'));
     }
-  }, [delToken]);
+  }, [delToken, setDelToken]);
 
   useEffect(() => {
     if (token) {
