@@ -7,14 +7,16 @@ import {Text} from '../../../UI/Text';
 import {URL_API} from '../../../api/const';
 
 
-export const Auth = ({token}) => {
+export const Auth = ({token, delToken}) => {
   const [auth, setAuth] = useState({});
   const [isExit, setExit] = useState(false);
 
-  const logOut = setAuth({});
 
   useEffect(() => {
-    if (!token) return;
+    if (!token) {
+      setAuth({});
+      return;
+    }
 
     fetch(`${URL_API}/api/v1/me`, {
       headers: {
@@ -42,8 +44,9 @@ export const Auth = ({token}) => {
               alt={`Avatar ${auth.name}`}
               onClick={() => setExit(!isExit)} />
           </button>
+
           {isExit && (
-            <button className={style.logOut} onClick={logOut}>
+            <button className={style.logout} onClick={delToken}>
             Выйти
             </button>
           )}
@@ -60,4 +63,5 @@ export const Auth = ({token}) => {
 };
 
 Auth.propTypes = {
-  token: PropTypes.string};
+  token: PropTypes.string,
+  delToken: PropTypes.string};

@@ -15,7 +15,7 @@ export const Header = ({token}) => (
         <Logo />
         <Heading text="Главная" />
         <Search />
-        <Auth token={token} />
+        <Auth/>
       </div>
     </Layout>
   </header>
