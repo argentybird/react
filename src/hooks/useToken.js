@@ -5,22 +5,24 @@ export const useToken = (state) => {
   const delToken = () => {
     setToken('');
     localStorage.removeItem('bearer');
+    console.log('token removed');
   };
 
   useEffect(() => {
     if (location.pathname.includes('/auth')) {
+      console.log('asking new token');
       const token = new URLSearchParams(location.hash.substring(1))
         .get('access_token');
       setToken(token);
     }
-
     if (localStorage.getItem('bearer')) {
       setToken(localStorage.getItem('bearer'));
     }
-
+    /*
     if (localStorage.removeItem('bearer')) {
       setToken(delToken);
     }
+    */
   }, [token, delToken]);
 
   useEffect(() => {
@@ -28,10 +30,12 @@ export const useToken = (state) => {
       localStorage.setItem('bearer', token);
     }
 
+    /*
     if (delToken) {
       localStorage.removeItem('bearer', delToken);
     }
+    */
   }, [token, delToken]);
 
-  return [token, delToken];
+  return {token, delToken};
 };

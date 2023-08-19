@@ -7,17 +7,18 @@ import {Text} from '../../../UI/Text';
 import {URL_API} from '../../../api/const';
 
 
-export const Auth = (token, delToken) => {
+export const Auth = ({token, delToken}) => {
   const [auth, setAuth] = useState({});
   const [isExit, setExit] = useState(false);
 
 
   useEffect(() => {
     if (!token) {
+      console.log('setAuth');
       setAuth({});
       return;
     }
-
+    console.log(`fetch ${URL_API}/api/v1/me`);
     fetch(`${URL_API}/api/v1/me`, {
       headers: {
         Authorization: `bearer ${token}`,
@@ -29,7 +30,7 @@ export const Auth = (token, delToken) => {
         setAuth({name, img});
       })
       .catch((err) => {
-        console.error(err);
+        console.err(err);
         setAuth({});
       });
   }, [token]);
@@ -46,7 +47,8 @@ export const Auth = (token, delToken) => {
           </button>
 
           {isExit && (
-            <button className={style.logout} onClick={delToken}>
+            <button className={style.logout}
+              onClick={() => delToken()} >
             Выйти
             </button>
           )}
@@ -64,4 +66,4 @@ export const Auth = (token, delToken) => {
 
 Auth.propTypes = {
   token: PropTypes.string,
-  delToken: PropTypes.string};
+  delToken: PropTypes.func};

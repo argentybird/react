@@ -22,7 +22,6 @@ export const Tabs = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDropdown, setIsDropdown] = useState(true);
   const [selectedTab, setSelectedTab] = useState(LIST[0].value);
-  console.log(selectedTab);
 
 
   const handleResize = () => {

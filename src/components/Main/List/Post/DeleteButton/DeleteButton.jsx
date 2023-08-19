@@ -2,11 +2,9 @@ import style from './DeleteButton.module.css';
 import deleteBut from './img/delete.svg';
 
 // eslint-disable-next-line react/prop-types
-export const DeleteButton = ({del}) => {
-  console.log(style);
-  return (
-    <button className={style.delete}src={deleteBut}>
-      {del ? del :
+export const DeleteButton = ({del}) =>
+  <button className={style.delete}src={deleteBut}>
+    {del ? del :
         <svg
           width='24'
           height='24'
@@ -28,6 +26,4 @@ export const DeleteButton = ({del}) => {
             fill='currentColor'
           />
         </svg>}
-    </button>
-  );
-};
+  </button>;
