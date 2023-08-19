@@ -7,7 +7,7 @@ import {Text} from '../../../UI/Text';
 import {URL_API} from '../../../api/const';
 
 
-export const Auth = ({token, delToken}) => {
+export const Auth = (token, delToken) => {
   const [auth, setAuth] = useState({});
   const [isExit, setExit] = useState(false);
 
@@ -29,7 +29,7 @@ export const Auth = ({token, delToken}) => {
         setAuth({name, img});
       })
       .catch((err) => {
-        console.err(err);
+        console.error(err);
         setAuth({});
       });
   }, [token]);

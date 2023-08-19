@@ -19,7 +19,7 @@ export const useToken = (state) => {
     }
 
     if (localStorage.removeItem('bearer')) {
-      setToken(localStorage.removeItem('bearer'));
+      setToken(delToken);
     }
   }, [token, delToken]);
 
@@ -33,5 +33,5 @@ export const useToken = (state) => {
     }
   }, [token, delToken]);
 
-  return {token, delToken};
+  return [token, delToken];
 };
