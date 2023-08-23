@@ -11,6 +11,12 @@ export const Auth = ({token, delToken}) => {
   const [auth, setAuth] = useState({});
   const [isExit, setExit] = useState(false);
 
+  delToken = () => {
+    localStorage.removeItem('bearer');
+    window.location.href = '/';
+    console.log('token removed');
+  };
+
 
   useEffect(() => {
     if (!token) {
@@ -24,13 +30,18 @@ export const Auth = ({token, delToken}) => {
         Authorization: `bearer ${token}`,
       },
     })
-      .then(response => response.json())
+      .then((response) => {
+        if (response.status === 401) {
+          throw new Error(response.status);
+        }
+        return response.json();
+      })
       .then(({name, icon_img: iconImg}) => {
         const img = iconImg.replace(/\?.*$/, '');
         setAuth({name, img});
       })
       .catch((err) => {
-        console.err(err);
+        console.error(err);
         setAuth({});
       });
   }, [token]);
