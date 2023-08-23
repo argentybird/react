@@ -14,7 +14,6 @@ export const Auth = ({token, delToken}) => {
   delToken = () => {
     localStorage.removeItem('bearer');
     window.location.href = '/';
-    console.log('token removed');
   };
 
 
@@ -42,6 +41,7 @@ export const Auth = ({token, delToken}) => {
       })
       .catch((err) => {
         console.error(err);
+        delToken();
         setAuth({});
       });
   }, [token]);
