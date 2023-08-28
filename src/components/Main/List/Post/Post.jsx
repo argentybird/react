@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import Ups from './Ups';
 import Title from './Title';
 import DeleteButton from './DeleteButton';
-import Data from './Data';
+import Date from './Date';
 
 export const Post = ({postData}) => {
-  const {title, author, ups, date} = postData;
+  const {title, author, ups, created_utc: date} = postData;
   return (
     <div className={style.post}>
       <Title title={title} author={author}/>
       <Ups ups={ups} />
       <DeleteButton del={false}/>
-      <Data date={date}/>
+      <Date date={date}/>
     </div>
   );
 };

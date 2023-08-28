@@ -34,8 +34,7 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   display: -webkit-box;
-  font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   transition: box-shadow 0.36s ease-in-out;
 }
 

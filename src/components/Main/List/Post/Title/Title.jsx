@@ -10,7 +10,7 @@ export const Title = ({title, author}) => (
       <img className={style.img} src={notphoto} alt={title} />
       <Text As='div' className={style.content}>
         <h2 className={style.title}>
-          <Text As='a' size={18} tsize={24}
+          <Text As='a' size={11} tsize={15}
             className={style.linkPost} href="#post">
             {title}
           </Text>

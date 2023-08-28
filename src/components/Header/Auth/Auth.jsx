@@ -12,6 +12,7 @@ export const Auth = () => {
   const [showLogout, setShowLogout] = useState(false);
   const {auth, clearAuth} = useContext(authContext);
 
+
   const getOut = () => {
     setShowLogout(!showLogout);
   };
