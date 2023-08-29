@@ -4,16 +4,23 @@ import Ups from './Ups';
 import Title from './Title';
 import DeleteButton from './DeleteButton';
 import Date from './Date';
+import Image from './Image';
+import Author from './Author';
 
 export const Post = ({postData}) => {
-  const {title, author, ups, created_utc: date} = postData;
+  const {thumbnail, title, author, ups, created_utc: date} = postData;
   return (
-    <div className={style.post}>
-      <Title title={title} author={author}/>
+    <li className={style.post}>
+      <Image link={thumbnail} alt={title} />
+
+      <div className={style.content}>
+        <Title title={title} link='#post' />
+        <Author author={author} link='#author' />
+      </div>
       <Ups ups={ups} />
-      <DeleteButton del={false}/>
+      <DeleteButton />
       <Date date={date}/>
-    </div>
+    </li>
   );
 };
 

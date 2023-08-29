@@ -1,5 +1,6 @@
 .date {
     grid-area: data;
+    padding-bottom: 10px;
     font-weight: 700;
     font-size: 10px;
     line-height: 130%;
