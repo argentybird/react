@@ -37,7 +37,7 @@ export const Text = prop => {
   );
 };
 
-Text.protoTypes = {
+Text.propTypes = {
   As: PropTypes.string,
   color: PropTypes.string,
   size: PropTypes.number,
@@ -49,6 +49,7 @@ Text.protoTypes = {
   href: PropTypes.string,
   center: PropTypes.bool,
   onClick: PropTypes.func,
+
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
