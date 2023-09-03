@@ -49,10 +49,10 @@ Text.propTypes = {
   href: PropTypes.string,
   center: PropTypes.bool,
   onClick: PropTypes.func,
-
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
-    PropTypes.array,
+    PropTypes.number,
+    PropTypes.array
   ]),
 };

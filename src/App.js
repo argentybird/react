@@ -6,8 +6,8 @@ import {TokenContextProvider} from './context/tokenContext';
 
 function App() {
   return (
-    <TokenContextProvider value={{}}>
-      <AuthContextProvider value={{}}>
+    <TokenContextProvider>
+      <AuthContextProvider>
         <Header />
         <Main />
       </AuthContextProvider>

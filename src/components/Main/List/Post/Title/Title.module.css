@@ -1,8 +1,12 @@
 
 .linkPost {
+  overflow: hidden;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   display: -webkit-box;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
   margin-bottom: 8px;
   transition: box-shadow 0.36s ease-in-out;
 }

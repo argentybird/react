@@ -3,13 +3,36 @@ import PropTypes from 'prop-types';
 import {ReactComponent as CloseIcon} from './img/close.svg';
 import Markdown from 'markdown-to-jsx';
 import ReactDOM from 'react-dom';
-import {useEffect, useRef} from 'react';
+import {useEffect, useRef, useContext} from 'react';
+import {useCommentsData} from '../../hooks/useCommentsData';
+import Comments from './Comments';
+import FormComment from './FormComment';
+import {tokenContext} from '../../context/tokenContext';
+import {Text} from '../../UI/Text';
 
-export const Modal = ({title, author, markdown, closeModal}) => {
+export const Modal = ({id, closeModal}) => {
+  const [articleData] = useCommentsData(id);
+  const {token} = useContext(tokenContext);
+
   const overlayRef = useRef(null);
-  const handleClick = e => {
-    const target = e.target;
-    if (target === overlayRef.current) {
+
+  const post = articleData[0] ?
+  articleData[0].data.children[0].data :
+  {};
+
+  const comments = articleData[1] ?
+  articleData[1].data.children :
+  {};
+
+
+  const handleClick = (e) => {
+    if (e.target === overlayRef.current) {
+      closeModal();
+    }
+  };
+
+  const handlePressKey = (e) => {
+    if (e.code === 'Escape') {
       closeModal();
     }
   };
@@ -21,26 +44,56 @@ export const Modal = ({title, author, markdown, closeModal}) => {
     };
   }, []);
 
+  useEffect(() => {
+    document.addEventListener('keydown', handlePressKey);
+    return () => {
+      document.removeEventListener('keydown', handlePressKey);
+    };
+  }, []);
+
   return (
     ReactDOM.createPortal(
       <div className={style.overlay} ref={overlayRef}>
         <div className={style.modal}>
-          <h2 className={style.title}>{title}</h2>
-          <div className={style.content}>
-            <Markdown options = {{
-              overrides: {
-                a: {
-                  props: {
-                    target: '_blank',
-                  }
-                }
-              }
-            }}>
-              {markdown}
-            </Markdown>
-          </div>
-          <p className={style.author}>{author}</p>
-          <button className={style.close}>
+          {articleData[0] ? (
+          <>
+            <Text As='h2' className={style.title} size={18} tsize={24}>
+              {post.title}
+            </Text>
+
+            <div className={style.content}>
+              <Markdown options={{
+                overrides: {
+                  a: {
+                    props: {
+                      target: '_blank',
+                    },
+                  },
+                },
+              }}>
+                {post.selftext}
+              </Markdown>
+            </div>
+
+            <Text As='p' className={style.author} size={14} tsize={16}>
+              {post.author}
+            </Text>
+
+            {token ?
+              <FormComment /> :
+              <Text As='p' color='orange' size={16} tsize={20} bold>
+                Авторизуйтесь, чтобы оставлять комментарии
+              </Text>
+            }
+            <Comments comments={comments}/>
+          </>
+        ) : (
+          <Text As='p' size={18} tsize={24}>
+            Загрузка...
+          </Text>
+        )}
+
+          <button className={style.close} onClick={closeModal}>
             <CloseIcon />
           </button>
         </div>
@@ -57,5 +110,6 @@ Modal.propTypes = {
   author: PropTypes.string,
   markdown: PropTypes.string,
   closeModal: PropTypes.func,
+  id: PropTypes.string,
 };
 
