@@ -5,7 +5,7 @@ import {useState} from 'react';
 import Modal from '../../../../Modal';
 
 
-export const Title = ({title, id}) => {
+export const Title = ({title, id, author, markdown}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>

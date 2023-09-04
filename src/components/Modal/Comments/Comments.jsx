@@ -1,7 +1,7 @@
 import style from './Comments.module.css';
 import PropTypes from 'prop-types';
 import {Text} from '../../../UI/Text';
-import Date from '../../Main/List/Post/Date';
+import Dates from '../../Main/List/Post/Dates';
 
 export const Comments = ({comments}) => {
   if (comments.length === 0) {
@@ -26,7 +26,7 @@ export const Comments = ({comments}) => {
           <Text As='p' className={style.comment} size={14} tsize={18}>
             {item.data.body}
           </Text>
-          <Date date={item.data.created} />
+          <Dates date={item.data.created} />
         </li>
       ))}
     </ul>
