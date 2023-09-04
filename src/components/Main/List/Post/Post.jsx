@@ -9,6 +9,7 @@ import Author from './Author';
 
 export const Post = ({postData}) => {
   const {
+    id,
     thumbnail,
     title,
     author,
@@ -16,14 +17,15 @@ export const Post = ({postData}) => {
     created_utc: date,
     selftext: markdown,
   } = postData;
-  const thumb = (thumbnail === 'default' || thumbnail === 'self') ?
-  '' : thumbnail;
+  // const thumb = (thumbnail === 'default' || thumbnail === 'self') ?
+  // '' : thumbnail;
   return (
     <li className={style.post}>
-      <Image link={thumb} alt={title}/>
+      <Image link={thumbnail} alt={title}/>
 
       <div className={style.content}>
-        <Title title={title} link='#post' author={author} markdown={markdown}/>
+        <Title id={id} title={title}
+          link='#post' author={author} markdown={markdown}/>
         <Author author={author} link='#author' />
       </div>
       <Ups ups={ups} />
