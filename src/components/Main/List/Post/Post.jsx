@@ -17,8 +17,7 @@ export const Post = ({postData}) => {
     created_utc: date,
     selftext: markdown,
   } = postData;
-  // const thumb = (thumbnail === 'default' || thumbnail === 'self') ?
-  // '' : thumbnail;
+
   return (
     <li className={style.post}>
       <Image link={thumbnail} alt={title}/>
