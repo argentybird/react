@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {API_URL, API_AUTH_URL} from '../api/const';
+import {API_AUTH_URL} from '../api/const';
 import {useSelector} from 'react-redux/es/hooks/useSelector';
 
 
@@ -20,7 +20,8 @@ export const useBestPosts = () => {
         }
       };
     } else {
-      url = `${API_URL}/best`; // https://api.reddit.com/best
+      return;
+      // url = `${API_URL}/best`; https://api.reddit.com/best
     }
 
 
