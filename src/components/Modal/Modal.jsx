@@ -1,18 +1,19 @@
 import style from './Modal.module.css';
-import PropTypes from 'prop-types';
 import {ReactComponent as CloseIcon} from './img/close.svg';
 import Markdown from 'markdown-to-jsx';
 import ReactDOM from 'react-dom';
-import {useEffect, useRef, useContext} from 'react';
+import {useEffect, useRef} from 'react';
 import {useCommentsData} from '../../hooks/useCommentsData';
 import Comments from './Comments';
 import FormComment from './FormComment';
-import {tokenContext} from '../../context/tokenContext';
 import {Text} from '../../UI/Text';
+import {useSelector} from 'react-redux';
+
 
 export const Modal = ({id, closeModal}) => {
+  const token = useSelector(state => state.token);
   const [articleData] = useCommentsData(id);
-  const {token} = useContext(tokenContext);
+
 
   const overlayRef = useRef(null);
 
@@ -104,12 +105,4 @@ export const Modal = ({id, closeModal}) => {
   );
 };
 
-
-Modal.propTypes = {
-  title: PropTypes.string,
-  author: PropTypes.string,
-  markdown: PropTypes.string,
-  closeModal: PropTypes.func,
-  id: PropTypes.string,
-};
 

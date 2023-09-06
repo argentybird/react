@@ -2,11 +2,13 @@ import {useContext} from 'react';
 import {authContext} from '../../../context/authContext';
 import style from './FormComment.module.css';
 import {Text} from '../../../UI/Text';
-import {commentContext} from '../../../context/commentContext';
+import {useSelector, useDispatch} from 'react-redux';
+import {updateComment} from '../../../store';
 
 export const FormComment = () => {
+  const dispatch = useDispatch();
+  const value = useSelector(state => state.comment);
   const {auth} = useContext(authContext);
-  const {value, setValue} = useContext(commentContext);
 
 
   const handleSubmit = (e) => {
@@ -14,8 +16,8 @@ export const FormComment = () => {
     console.log(value);
   };
 
-  const handleChange = e => {
-    setValue(e.target.value);
+  const handleChange = (e) => {
+    dispatch(updateComment(e.target.value));
   };
 
   return (

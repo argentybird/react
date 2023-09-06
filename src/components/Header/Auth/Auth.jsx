@@ -1,14 +1,14 @@
 import {useState, useContext} from 'react';
 import style from './Auth.module.css';
-import PropTypes from 'prop-types';
 import {ReactComponent as LoginIcon} from './img/login.svg';
 import {urlAuth} from '../../../api/auth';
 import {Text} from '../../../UI/Text';
-import {tokenContext} from '../../../context/tokenContext';
 import {authContext} from '../../../context/authContext';
+import {useDispatch} from 'react-redux';
+import {deleteToken} from '../../../store';
 
 export const Auth = () => {
-  const {delToken} = useContext(tokenContext);
+  const dispatch = useDispatch();
   const [showLogout, setShowLogout] = useState(false);
   const {auth, clearAuth} = useContext(authContext);
 
@@ -17,8 +17,8 @@ export const Auth = () => {
     setShowLogout(!showLogout);
   };
 
-  const logOut = () => {
-    delToken();
+  const logOut = (e) => {
+    dispatch(deleteToken());
     clearAuth();
   };
 
@@ -50,7 +50,3 @@ export const Auth = () => {
 
   );
 };
-
-Auth.propTypes = {
-  token: PropTypes.string,
-  delToken: PropTypes.func};

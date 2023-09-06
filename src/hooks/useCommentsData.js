@@ -1,9 +1,7 @@
 import {useEffect, useState} from 'react';
 import {API_URL} from '../api/const';
-// import {tokenContext} from '../context/tokenContext';
 
 export const useCommentsData = (id) => {
-// const {token} = useContext(tokenContext);
   const [commentsData, setCommentsData] = useState({});
 
 
@@ -21,7 +19,7 @@ export const useCommentsData = (id) => {
       .catch(err => {
         console.log('err:', err);
       });
-  }, []);
+  }, [id]);
 
   return [commentsData];
 };
