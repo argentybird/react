@@ -1,14 +1,16 @@
 import {useEffect, useState} from 'react';
 import {API_URL} from '../api/const';
+import {useSelector} from 'react-redux';
 
 export const useCommentsData = (id) => {
   const [commentsData, setCommentsData] = useState({});
+  const token = useSelector(state => state.tokenReducer.token);
 
 
   useEffect(() => {
-    if (!id) return;
+    if (!token) return;
 
-    fetch(`${API_URL}/comments/${id}`)
+    window.fetch(`${API_URL}/comments/${id}`)
       .then(response => {
         console.log();
         return response.json();
