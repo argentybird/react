@@ -1,13 +1,21 @@
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {composeWithDevTools} from '@redux-devtools/extension';
-import {tokenReducer} from './tokenReducer';
+import {tokenMiddleware, tokenReducer} from './tokenReducer';
 import {commentReducer} from './commentReducer';
+import {authReducer} from './auth/authReducer';
+import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
-  tokenReducer,
-  commentReducer,
+  token: tokenReducer,
+  comment: commentReducer,
+  auth: authReducer,
 });
 
-export const store = createStore(rootReducer, composeWithDevTools());
+
+export const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(tokenMiddleware,
+    thunk)),
+);
 
 

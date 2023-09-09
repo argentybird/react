@@ -11,7 +11,7 @@ import {useSelector} from 'react-redux';
 
 
 export const Modal = ({id, closeModal}) => {
-  const token = useSelector(state => state.token);
+  const token = useSelector(state => state.token.token);
   const [articleData] = useCommentsData(id);
 
 

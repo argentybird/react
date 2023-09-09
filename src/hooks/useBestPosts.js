@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux/es/hooks/useSelector';
 
 
 export const useBestPosts = () => {
-  const token = useSelector(state => state.tokenReducer.token);
+  const token = useSelector(state => state.token.token);
   const [bestPosts, setBestPosts] = useState([]);
 
 
