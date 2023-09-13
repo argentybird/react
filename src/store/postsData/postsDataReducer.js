@@ -1,21 +1,21 @@
-import {AUTH_REQUEST, AUTH_LOGOUT, AUTH_REQUEST_SUCCESS, AUTH_REQUEST_ERROR} from './authAction';
+import {POST_REQUEST, POST_REQUEST_SUCCESS, POST_REQUEST_ERROR} from './postsDataAction';
 
 const initialState = {
   loading: false,
-  data: {},
+  data: [],
   error: '',
 };
 
-export const authReducer = (state = initialState, action) => {
+export const postDataReducer = (state = initialState, action) => {
   switch (action.type) {
-    case AUTH_REQUEST:
+    case POST_REQUEST:
       return {
         ...state,
         loading: true,
         error: '',
       };
 
-    case AUTH_REQUEST_SUCCESS:
+    case POST_REQUEST_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -23,17 +23,11 @@ export const authReducer = (state = initialState, action) => {
         error: '',
       };
 
-    case AUTH_REQUEST_ERROR:
+    case POST_REQUEST_ERROR:
       return {
         ...state,
         loading: false,
         error: action.error,
-      };
-    case AUTH_LOGOUT:
-      return {
-        ...state,
-        data: {},
-        error: '',
       };
 
     default:

@@ -1,0 +1,4 @@
+{
+    "editor.defaultFormatter": "passionkind.prettier-vscode-with-tabs",
+    "editor.formatOnSave": true
+}

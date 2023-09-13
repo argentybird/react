@@ -16,7 +16,7 @@ const initialState = {
   token: '',
 };
 
-export const tokenMiddleware = store => next => (action) => {
+export const tokenMiddleware = store => next => action => {
   if (action.type === UPDATE_TOKEN) {
     setToken(action.token);
   }
@@ -29,17 +29,14 @@ export const tokenMiddleware = store => next => (action) => {
 export const tokenReducer = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_TOKEN:
-
       return {
         ...state,
         token: action.token,
       };
     case DELETE_TOKEN:
-
       return {
         ...state,
         token: '',
-
       };
 
     default:

@@ -1,9 +1,9 @@
-
 const initialState = {
-  comment: 'Hello Redux',
+  comment: 'Hi, Redux',
 };
 
 const UPDATE_COMMENT = 'UPDATE_COMMENT';
+
 export const updateComment = comment => ({
   type: UPDATE_COMMENT,
   comment,
@@ -15,9 +15,7 @@ export const commentReducer = (state = initialState, action) => {
       return {
         ...state,
         comment: action.comment,
-
       };
-
 
     default:
       return state;
