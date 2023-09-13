@@ -7,7 +7,7 @@ import {useAuth} from '../../../hooks/useAuth';
 export const FormComment = () => {
   const dispatch = useDispatch();
   const value = useSelector(state => state.comment.comment);
-  const [auth] = useAuth();
+  const {auth} = useAuth();
 
   const handleSubmit = e => {
     e.preventDefault();

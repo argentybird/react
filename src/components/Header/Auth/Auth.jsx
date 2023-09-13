@@ -11,7 +11,7 @@ import Preloader from '../../../UI/Preloader';
 export const Auth = () => {
   const dispatch = useDispatch();
   const [showLogout, setShowLogout] = useState(false);
-  const [auth, loading, clearAuth] = useAuth({});
+  const {auth, loading, clearAuth} = useAuth();
 
   const getOut = () => {
     setShowLogout(!showLogout);

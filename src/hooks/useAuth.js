@@ -16,5 +16,5 @@ export const useAuth = () => {
 
   const clearAuth = () => dispatch(authLogout());
 
-  return [auth, loading, error, clearAuth];
+  return {auth, loading, clearAuth, error};
 };
