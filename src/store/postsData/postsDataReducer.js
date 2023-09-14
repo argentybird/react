@@ -1,9 +1,14 @@
-import {POST_REQUEST, POST_REQUEST_SUCCESS, POST_REQUEST_ERROR} from './postsDataAction';
+import {
+  POST_REQUEST,
+  POST_REQUEST_SUCCESS,
+  POST_REQUEST_ERROR,
+} from './postsDataAction';
 
 const initialState = {
   loading: false,
   data: [],
   error: '',
+  after: '',
 };
 
 export const postDataReducer = (state = initialState, action) => {

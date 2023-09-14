@@ -1,10 +1,9 @@
-/* eslint-disable arrow-body-style */
 import style from './Main.module.css';
 import Layout from '../Layout';
 import Tabs from './Tabs';
 import List from './List';
 
-export const Main = (props) => (
+export const Main = props => (
   <main className={style.main}>
     <Layout>
       <Tabs />
@@ -12,5 +11,3 @@ export const Main = (props) => (
     </Layout>
   </main>
 );
-
-

@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {postsDataRequestAsync} from '../store//postsData/postsDataAction';
+import {postsDataRequestAsync} from '../store/postsData/postsDataAction';
 
 export const usePostsData = () => {
   const token = useSelector(state => state.token.token);
