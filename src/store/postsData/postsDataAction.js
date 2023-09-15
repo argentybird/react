@@ -12,7 +12,7 @@ export const postRequest = () => ({
 
 export const postRequestSuccess = data => ({
   type: 'POST_REQUEST_SUCCESS',
-  posts: data.children,
+  postsData: data.children,
   after: data.after,
 });
 

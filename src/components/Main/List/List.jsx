@@ -2,11 +2,12 @@ import style from './List.module.css';
 import {useRef, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import Post from './Post';
+
 import {generateRandomId} from '../../../utils/generateRandomId';
 import {postsDataRequestAsync} from '../../../store/postsData/postsDataAction';
 
 export const List = () => {
-  const postsData = useSelector(state => state.posts.posts);
+  const postsData = useSelector(state => state.postsData.data);
   const endList = useRef(null);
   const dispatch = useDispatch();
   useEffect(() => {

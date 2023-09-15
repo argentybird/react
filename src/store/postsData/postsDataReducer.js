@@ -26,6 +26,7 @@ export const postDataReducer = (state = initialState, action) => {
         loading: false,
         data: action.data,
         error: '',
+        after: action.after,
       };
 
     case POST_REQUEST_ERROR:
