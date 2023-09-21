@@ -9,20 +9,20 @@ import {ReactComponent as HomeIcon} from './img/home.svg';
 import {ReactComponent as HotIcon} from './img/hot.svg';
 import {ReactComponent as TopIcon} from './img/top.svg';
 import {Text} from '../../../UI/Text';
-
+import {useNavigate} from 'react-router-dom';
 
 const LIST = [
-  {value: 'Главная', Icon: HomeIcon},
-  {value: 'Топ', Icon: TopIcon},
-  {value: 'Лучшие', Icon: BestIcon},
-  {value: 'Горячие', Icon: HotIcon},
+  {value: 'Главная', Icon: HomeIcon, link: 'rising'},
+  {value: 'Топ', Icon: TopIcon, link: 'top'},
+  {value: 'Лучшие', Icon: BestIcon, link: 'best'},
+  {value: 'Горячие', Icon: HotIcon, link: 'hot'},
 ].map(assignId);
 
 export const Tabs = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDropdown, setIsDropdown] = useState(true);
   const [selectedTab, setSelectedTab] = useState(LIST[0].value);
-
+  const navigate = useNavigate();
 
   const handleResize = () => {
     if (document.documentElement.clientWidth < 768) {
@@ -43,24 +43,39 @@ export const Tabs = () => {
 
   return (
     <div className={style.container}>
-      {isDropdown && <div className={style.wrapperBtn}>
-        <button className={style.btn}
-          onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-          {selectedTab}
-          <ArrowIcon width={15} height={15} />
-        </button>
-      </div>}
+      {isDropdown && (
+        <div className={style.wrapperBtn}>
+          <button
+            className={style.btn}
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          >
+            {selectedTab}
+            <ArrowIcon width={15} height={15} />
+          </button>
+        </div>
+      )}
 
       {(isDropdownOpen || !isDropdown) && (
-        <Text As='ul' className={style.list} bold onClick={
-          () => setIsDropdownOpen(false)}>
-          {LIST.map(({value, id, Icon}) => (
-            <li className={style.item} key={id}
-            >
-              <Text As='button' bold className={style.btn}
-                onClick={() => setSelectedTab(value)}>
+        <Text
+          As="ul"
+          className={style.list}
+          bold
+          onClick={() => setIsDropdownOpen(false)}
+        >
+          {LIST.map(({value, link, id, Icon}) => (
+            <li className={style.item} key={id}>
+              <Text
+                As="button"
+                bold
+                className={style.btn}
+                onClick={() => {
+                  setSelectedTab(value);
+                  navigate(`/category/${link}`);
+                }}
+              >
                 {value}
-                {Icon && <Icon width={30} height={30}/>}</Text>
+                {Icon && <Icon width={30} height={30} />}
+              </Text>
             </li>
           ))}
         </Text>
@@ -72,5 +87,5 @@ export const Tabs = () => {
 Tabs.propTypes = {
   list: PropTypes.array,
   setList: PropTypes.func,
-  addItem: PropTypes.func
+  addItem: PropTypes.func,
 };

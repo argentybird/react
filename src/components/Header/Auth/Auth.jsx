@@ -1,17 +1,20 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import style from './Auth.module.css';
 import {ReactComponent as LoginIcon} from './img/login.svg';
 import {urlAuth} from '../../../api/auth';
 import {Text} from '../../../UI/Text';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {deleteToken} from '../../../store/tokenReducer';
 import {useAuth} from '../../../hooks/useAuth';
+import {useNavigate} from 'react-router-dom';
 import Preloader from '../../../UI/Preloader';
 
 export const Auth = () => {
   const dispatch = useDispatch();
   const [showLogout, setShowLogout] = useState(false);
-  const {auth, loading, clearAuth} = useAuth();
+  const {auth, loading, error, clearAuth} = useAuth();
+  const navigate = useNavigate();
+  const page = useSelector(state => state.postsData.page);
 
   const getOut = () => {
     setShowLogout(!showLogout);
@@ -20,7 +23,18 @@ export const Auth = () => {
   const logOut = e => {
     dispatch(deleteToken());
     clearAuth();
+    page ? navigate(`/category/${page}`) : navigate(`/`);
   };
+
+  useEffect(() => {
+    if (error) {
+      navigate(`/`);
+
+      setTimeout(() => {
+        clearAuth();
+      }, 5000);
+    }
+  }, [error]);
 
   return (
     <div className={style.container}>
