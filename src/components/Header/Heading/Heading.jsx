@@ -10,6 +10,7 @@ const name = {
   hot: 'Горячие',
   undefined: 'Blogget',
 };
+
 export const Heading = () => {
   const {page} = useParams();
   return (

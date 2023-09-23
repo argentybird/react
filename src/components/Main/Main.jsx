@@ -3,7 +3,7 @@ import Layout from '../Layout';
 import Tabs from './Tabs';
 import List from './List';
 import {Route, Routes} from 'react-router-dom';
-import Modal from '../Modal';
+import {Modal} from '../Modal/Modal';
 import {Text} from '../../UI/Text';
 
 export const Main = () => (
@@ -61,7 +61,7 @@ export const Main = () => (
           }
         />
         <Route path="category/:page" element={<List />}>
-          <Route path="post/:id" element={<Modal />}></Route>
+          <Route path="post/:id" element={<Modal />} />
         </Route>
       </Routes>
     </Layout>

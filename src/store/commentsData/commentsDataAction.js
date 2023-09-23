@@ -1,7 +1,6 @@
 import axios from 'axios';
 import {API_URL} from '../../api/const';
 
-
 export const COMMENTS_DATA_REQUEST = 'COMMENTS_DATA_REQUEST';
 export const COMMENTS_DATA_REQUEST_SUCCESS = 'COMMENTS_DATA_REQUEST_SUCCESS';
 export const COMMENTS_DATA_REQUEST_ERROR = 'COMMENTS_DATA_REQUEST_ERROR';
@@ -11,17 +10,17 @@ export const commentsDataRequest = () => ({
   error: '',
 });
 
-export const commentsDataRequestSuccess = (data) => ({
+export const commentsDataRequestSuccess = data => ({
   type: COMMENTS_DATA_REQUEST_SUCCESS,
   data,
 });
 
-export const commentsDataRequestError = (error) => ({
+export const commentsDataRequestError = error => ({
   type: COMMENTS_DATA_REQUEST_ERROR,
   error,
 });
 
-export const commentsDataRequestAsync = (id) => (dispatch) => {
+export const commentsDataRequestAsync = id => dispatch => {
   dispatch(commentsDataRequest());
 
   axios(`${API_URL}/comments/${id}`)

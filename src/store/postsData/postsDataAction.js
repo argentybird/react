@@ -55,7 +55,7 @@ export const postsDataRequestAsync = newPage => (dispatch, getState) => {
   let url = '';
   let options = {};
 
-  const bestUrl = `/${page}?limit=10${after ? `&after=${after}` : ''}`;
+  const bestUrl = `/${page}?limit=20${after ? `&after=${after}` : ''}`;
 
   if (token) {
     url = `${API_AUTH_URL}${bestUrl}`;

@@ -1,4 +1,8 @@
-import {COMMENTS_DATA_REQUEST, COMMENTS_DATA_REQUEST_ERROR, COMMENTS_DATA_REQUEST_SUCCESS} from './commentsDataAction';
+import {
+  COMMENTS_DATA_REQUEST,
+  COMMENTS_DATA_REQUEST_ERROR,
+  COMMENTS_DATA_REQUEST_SUCCESS,
+} from './commentsDataAction';
 
 const initialState = {
   status: 'loading',
