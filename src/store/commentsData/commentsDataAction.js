@@ -13,6 +13,7 @@ export const commentsDataRequest = () => ({
 export const commentsDataRequestSuccess = data => ({
   type: COMMENTS_DATA_REQUEST_SUCCESS,
   data,
+  error: '',
 });
 
 export const commentsDataRequestError = error => ({

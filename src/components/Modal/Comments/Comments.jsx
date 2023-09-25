@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {Text} from '../../../UI/Text';
 import Dates from '../../Main/List/Post/Dates';
 
-export const Comments = ({comments}) => {
+/* export const Comments = ({comments}) => {
   if (comments.length === 0) {
     return (
       <Text As="p" className={style.nocomment} size={14} tsize={18}>
@@ -37,12 +37,13 @@ export const Comments = ({comments}) => {
     </ul>
   );
 };
+*/
 
-/* export const Comments = ({comments}) => (
+export const Comments = ({comments}) => (
   <ul className={style.list}>
     {comments.length ? (
       comments.map(
-        item =>
+        (item) =>
           item.body && (
             <li className={style.item} key={item.id}>
               <Text As="h3" className={style.author} size={18} tsize={22}>
@@ -51,7 +52,7 @@ export const Comments = ({comments}) => {
               <Text As="p" className={style.comment} size={14} tsize={18}>
                 {item.body.replaceAll(`&gt;`, ' ')}
               </Text>
-              <Dates date={item.data.created} />
+              <Dates date={item.created} />
             </li>
           ),
       )
@@ -59,7 +60,7 @@ export const Comments = ({comments}) => {
       <p>No comments</p>
     )}
   </ul>
-); */
+);
 
 Comments.propTypes = {
   comments: PropTypes.array,

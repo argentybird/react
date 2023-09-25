@@ -10,7 +10,7 @@ export const useCommentsData = id => {
 
   useEffect(() => {
     dispatch(commentsDataRequestAsync(id));
-  }, [id]);
+  }, []);
 
   return [post, comments, status, error];
 };

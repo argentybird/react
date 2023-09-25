@@ -9,7 +9,7 @@ export const Title = ({title, id, author, markdown}) => {
     <>
       <Text As="h2" className={style.title}>
         <Link className={style.linkPost} to={`/category/${page}/post/${id}`}>
-          <Text bold size={14} tsize={22}>
+          <Text bold size={14} tsize={22} className={style.linkPost}>
             {title}
           </Text>
         </Link>
