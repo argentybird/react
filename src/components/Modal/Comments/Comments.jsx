@@ -1,5 +1,3 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable operator-linebreak */
 import style from './Comments.module.css';
 import PropTypes from 'prop-types';
 import {Text} from '../../../UI/Text';
@@ -44,22 +42,19 @@ export const Comments = ({comments}) => {
   return (
     <ul className={style.list}>
       {comments.length ? (
-        comments.map(item => {
-          return (
-            console.log(item) &&
-            item.body && (
-              <li className={style.item} key={item.id}>
-                <Text As="h3" className={style.author} size={18} tsize={22}>
-                  {item.author}
-                </Text>
-                <Text As="p" className={style.comment} size={14} tsize={18}>
-                  {item.body.replaceAll(`&gt;`, ' ')}
-                </Text>
-                <Dates date={item.created} />
-              </li>
-            )
-          );
-        })
+        comments.map(item => (
+          <>
+            <li className={style.item} key={item.id}>
+              <Text As="h3" className={style.author} size={18} tsize={22}>
+                {item.data.author}
+              </Text>
+              <Text As="p" className={style.comment} size={14} tsize={18}>
+                {item.data.body.replaceAll(`&gt;`, ' ')}
+              </Text>
+              <Dates date={item.data.created} />
+            </li>
+          </>
+        ))
       ) : (
         <p>No comments</p>
       )}
