@@ -1,3 +1,5 @@
+/* eslint-disable arrow-body-style */
+/* eslint-disable operator-linebreak */
 import style from './Comments.module.css';
 import PropTypes from 'prop-types';
 import {Text} from '../../../UI/Text';

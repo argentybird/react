@@ -8,6 +8,7 @@ import {deleteToken} from '../../../store/tokenReducer';
 import {useAuth} from '../../../hooks/useAuth';
 import {useNavigate} from 'react-router-dom';
 import Preloader from '../../../UI/Preloader';
+import ErrorModal from '../../errorModal';
 
 export const Auth = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ export const Auth = () => {
 
   return (
     <div className={style.container}>
+      {error && <ErrorModal error={`Ошибка авторизации: ${error}`} />}
       {loading ? (
         <Preloader size={30} />
       ) : auth.name ? (

@@ -6,7 +6,7 @@ import {Link, useParams} from 'react-router-dom';
 export const Title = ({title, id, author, markdown}) => {
   const page = useParams();
   return (
-    <>
+    <div className={style.content}>
       <Text As="h2" className={style.title}>
         <Link className={style.linkPost} to={`/category/${page}/post/${id}`}>
           <Text bold size={14} tsize={22} className={style.linkPost}>
@@ -14,7 +14,7 @@ export const Title = ({title, id, author, markdown}) => {
           </Text>
         </Link>
       </Text>
-    </>
+    </div>
   );
 };
 
