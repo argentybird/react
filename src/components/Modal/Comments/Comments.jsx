@@ -1,5 +1,3 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable operator-linebreak */
 import style from './Comments.module.css';
 import PropTypes from 'prop-types';
 import {Text} from '../../../UI/Text';
@@ -41,27 +39,25 @@ import Dates from '../../Main/List/Post/Dates';
 */
 
 export const Comments = ({comments}) => {
-  return (
-    <ul className={style.list}>
-      {comments.length ? (
-        comments.map(item => (
-          <>
-            <li className={style.item} key={item.id}>
-              <Text As="h3" className={style.author} size={18} tsize={22}>
-                {item.data.author}
-              </Text>
-              <Text As="p" className={style.comment} size={14} tsize={18}>
-                {item.data.body.replaceAll(`&gt;`, ' ')}
-              </Text>
-              <Dates date={item.data.created} />
-            </li>
-          </>
-        ))
-      ) : (
-        <p>No comments</p>
-      )}
-    </ul>
-  );
+  <ul className={style.list}>
+    {comments.length ? (
+      comments.map(item => (
+        <>
+          <li className={style.item} key={item.id}>
+            <Text As="h3" className={style.author} size={18} tsize={22}>
+              {item.data.author}
+            </Text>
+            <Text As="p" className={style.comment} size={14} tsize={18}>
+              {item.comments.body.replaceAll(`&gt;`, ' ')}
+            </Text>
+            <Dates date={item.data.created} />
+          </li>
+        </>
+      ))
+    ) : (
+      <p>No comments</p>
+    )}
+  </ul>;
 };
 
 Comments.propTypes = {
