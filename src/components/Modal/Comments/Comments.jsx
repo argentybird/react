@@ -43,14 +43,14 @@ export const Comments = ({comments}) => {
     {comments.length ? (
       comments.map(item => (
         <>
-          <li className={style.item} key={item.id}>
+          <li className={style.item} key={item.commentsData.id}>
             <Text As="h3" className={style.author} size={18} tsize={22}>
-              {item.data.author}
+              {item.commentsData.author}
             </Text>
             <Text As="p" className={style.comment} size={14} tsize={18}>
-              {item.comments.body.replaceAll(`&gt;`, ' ')}
+              {item.commentsData.body.replaceAll(`&gt;`, ' ')}
             </Text>
-            <Dates date={item.data.created} />
+            <Dates date={item.commentsData.created} />
           </li>
         </>
       ))
@@ -58,6 +58,7 @@ export const Comments = ({comments}) => {
       <p>No comments</p>
     )}
   </ul>;
+  return {comments};
 };
 
 Comments.propTypes = {

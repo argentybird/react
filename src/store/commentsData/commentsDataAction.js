@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {API_URL} from '../../api/const';
+import {API_AUTH_URL} from '../../api/const';
 
 import {createAsyncThunk} from '@reduxjs/toolkit';
 
@@ -9,9 +9,9 @@ export const commentsDataRequestAsync = createAsyncThunk(
     const token = getState().token.token;
     if (!token) return;
 
-    return axios(`${API_URL}/comments/${id}`, {
+    return axios(`${API_AUTH_URL}}/comments/${id}`, {
       headers: {
-        Authorisation: `bearer ${token}`,
+        Authorization: `bearer ${token}`,
       },
     })
       .then(

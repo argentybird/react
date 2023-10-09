@@ -3,7 +3,7 @@ import Layout from '../Layout';
 import Tabs from './Tabs';
 import List from './List';
 import {Route, Routes} from 'react-router-dom';
-import {Modal} from '../Modal/Modal';
+import Modal from '../Modal';
 import {Text} from '../../UI/Text';
 
 export const Main = () => (

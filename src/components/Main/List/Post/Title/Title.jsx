@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import {Text} from '../../../../../UI/Text';
 import {Link, useParams} from 'react-router-dom';
 
-export const Title = ({title, id, author, markdown}) => {
-  const page = useParams();
+export const Title = ({title, id}) => {
+  const {page} = useParams();
   return (
     <div className={style.content}>
       <Text As="h2" className={style.title}>
@@ -20,7 +20,5 @@ export const Title = ({title, id, author, markdown}) => {
 
 Title.propTypes = {
   title: PropTypes.string,
-  author: PropTypes.string,
-  markdown: PropTypes.string,
   id: PropTypes.string,
 };

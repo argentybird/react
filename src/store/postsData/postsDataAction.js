@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {API_AUTH_URL, API_URL} from '../../api/const';
+import {API_AUTH_URL} from '../../api/const';
 
 export const POST_REQUEST = 'POST_REQUEST';
 export const POST_REQUEST_SUCCESS = 'POST_REQUEST_SUCCESS';
@@ -66,7 +66,7 @@ export const postsDataRequestAsync = newPage => (dispatch, getState) => {
       },
     };
   } else {
-    url = `${API_URL}${bestUrl}`;
+    url = `${API_AUTH_URL}${bestUrl}`;
   }
 
   dispatch(postRequest());
