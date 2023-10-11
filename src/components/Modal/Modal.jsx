@@ -15,6 +15,7 @@ export const Modal = () => {
   const navigate = useNavigate();
   const token = useSelector(state => state.token.token);
   const [post, comments, status, error] = useCommentsData(id);
+  // console.log(post);
 
   const overlayRef = useRef(null);
 
