@@ -13,6 +13,5 @@ export const useCommentsData = id => {
     dispatch(commentsDataRequestAsync(id));
   }, []);
 
-  // console.log({post, comments, status, error});
   return [post, comments, status, error];
 };

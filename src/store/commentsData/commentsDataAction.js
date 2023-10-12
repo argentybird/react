@@ -27,7 +27,6 @@ export const commentsDataRequestAsync = createAsyncThunk(
             },
           ],
         }) => {
-          // const post = data[0].data.children[0].data;
           const comments = children.map(item => item.data);
           return {post, comments};
         },
