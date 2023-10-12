@@ -5,5 +5,5 @@ export const URL_AUTH = 'https://www.reddit.com/api/v1/authorize?';
 export const RESPONSE_TYPE = 'token';
 export const RANDOM_STRING = 'random_string';
 export const REDIRECT_URI =
-  'https://blogget-marina-marinas-projects-2a247273.vercel.app/auth';
+  'https://react-marinas-projects-2a247273.vercel.app/auth';
 export const SCOPE = 'identity submit read';
