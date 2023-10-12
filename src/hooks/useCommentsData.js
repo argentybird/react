@@ -14,5 +14,5 @@ export const useCommentsData = id => {
   }, []);
 
   // console.log({post, comments, status, error});
-  return post, comments, status, error;
+  return [post, comments, status, error];
 };

@@ -9,7 +9,7 @@ export const commentsDataRequestAsync = createAsyncThunk(
     const token = getState().token.token;
     if (!token) return;
 
-    return axios(`${API_AUTH_URL}}/comments/${id}`, {
+    return axios(`${API_AUTH_URL}/comments/${id}`, {
       headers: {
         Authorization: `bearer ${token}`,
       },
