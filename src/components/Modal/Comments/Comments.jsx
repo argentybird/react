@@ -17,7 +17,7 @@ export const Comments = ({comments}) => {
                   {item.author}
                 </Text>
                 <Text As="p" className={style.comment} size={14} tsize={18}>
-                {(item.body || '').replaceAll()}
+                  {(item.body || '').replaceAll()}
                 </Text>
                 <Dates date={item.created} />
               </li>
