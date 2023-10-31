@@ -4,6 +4,5 @@ export const CLIENT_ID = 'ui4tfRVGh943kW3NrUSVeA';
 export const URL_AUTH = 'https://www.reddit.com/api/v1/authorize?';
 export const RESPONSE_TYPE = 'token';
 export const RANDOM_STRING = 'random_string';
-export const REDIRECT_URI =
-  'https://react-marinas-projects-2a247273.vercel.app/auth';
+export const REDIRECT_URI = 'https://cute-cucurucho-e5d1ce.netlify.app/auth';
 export const SCOPE = 'identity submit read';
